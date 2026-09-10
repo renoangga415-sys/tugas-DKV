@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,25 +14,20 @@
         }
 
         body {
-            background: #f5f5f5;
-            color: #333;
+            background: #f4f4f4;
         }
 
         header {
             background: #6a1b9a;
             color: white;
-            padding: 20px;
             text-align: center;
-        }
-
-        header h1 {
-            margin-bottom: 8px;
+            padding: 25px;
         }
 
         nav {
             background: #4a148c;
-            padding: 12px;
             text-align: center;
+            padding: 15px;
         }
 
         nav a {
@@ -57,7 +51,7 @@
         .menu {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
@@ -69,54 +63,51 @@
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            display: block;
         }
 
-        .card-content {
-            padding: 18px;
+        .isi {
+            padding: 20px;
         }
 
-        .card h3 {
+        .isi h3 {
             color: #6a1b9a;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .harga {
             font-size: 18px;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
             background: #6a1b9a;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
             font-weight: bold;
+            cursor: pointer;
         }
 
         button:hover {
             background: #4a148c;
         }
 
-        .keranjang {
+        .box {
             background: white;
-            margin-top: 30px;
             padding: 25px;
+            margin-top: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
 
-        .keranjang h2 {
+        .box h2 {
             color: #6a1b9a;
-            margin-bottom: 15px;
-        }
-
-        #daftarKeranjang {
             margin-bottom: 15px;
         }
 
@@ -125,16 +116,8 @@
             border-bottom: 1px solid #ddd;
         }
 
-        .form-pesan {
-            margin-top: 25px;
-        }
-
-        .form-pesan h2 {
-            margin-bottom: 15px;
-            color: #6a1b9a;
-        }
-
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             padding: 12px;
             margin-bottom: 12px;
@@ -144,7 +127,6 @@
 
         textarea {
             height: 90px;
-            resize: none;
         }
 
         .total {
@@ -154,15 +136,11 @@
         }
 
         footer {
+            margin-top: 40px;
             background: #4a148c;
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
-        }
-
-        .kosong {
-            color: #777;
         }
     </style>
 </head>
@@ -171,117 +149,118 @@
 
 <header>
     <h1>🍽️ TOKO MENU LEZAT</h1>
-    <p>Pesan makanan dan minuman favoritmu</p>
+    <p>Menu pilihan dengan rasa yang istimewa</p>
 </header>
 
 <nav>
     <a href="#menu">Menu</a>
     <a href="#keranjang">🛒 Keranjang</a>
-    <a href="#pesanan">📞 Pesanan</a>
+    <a href="#pesanan">📋 Pesanan</a>
 </nav>
 
 <div class="container">
 
-    <section id="menu">
-        <h2 class="judul">Daftar Menu</h2>
+    <h2 class="judul" id="menu">Daftar Menu</h2>
 
-        <div class="menu">
+    <div class="menu">
 
-            <!-- TEH TAWAR -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
-                     alt="Teh Tawar">
+        <!-- TEH TAWAR -->
+        <div class="card">
+            <img src="teh-tawar.jpeg" alt="Teh Tawar">
 
-                <div class="card-content">
-                    <h3>🍵 Teh Tawar</h3>
-                    <p>Teh tawar hangat yang cocok diminum kapan saja.</p>
-                    <p class="harga">Rp5.000</p>
+            <div class="isi">
+                <h3>🍵 Teh Tawar</h3>
+                <p>Teh tawar hangat yang sederhana dan menyegarkan.</p>
 
-                    <button onclick="tambahKeranjang('Teh Tawar', 5000)">
-                        + Tambah ke Keranjang
-                    </button>
-                </div>
+                <p class="harga">Rp5.000</p>
+
+                <button onclick="tambah('Teh Tawar', 5000)">
+                    🛒 Tambah ke Keranjang
+                </button>
             </div>
-
-
-            <!-- BUAH CHERSEN -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
-                     alt="Buah">
-
-                <div class="card-content">
-                    <h3>🍒 Buah Chersen</h3>
-                    <p>Buah segar dengan rasa manis dan menyegarkan.</p>
-                    <p class="harga">Rp10.000</p>
-
-                    <button onclick="tambahKeranjang('Buah Chersen', 10000)">
-                        + Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- PEREMPUAN MALAM -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=80"
-                     alt="Menu Perempuan Malam">
-
-                <div class="card-content">
-                    <h3>🌙 Perempuan Malam</h3>
-                    <p>Menu spesial dengan cita rasa khas dari toko kami.</p>
-                    <p class="harga">Rp15.000</p>
-
-                    <button onclick="tambahKeranjang('Perempuan Malam', 15000)">
-                        + Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
         </div>
-    </section>
+
+
+        <!-- BUAH CHERSEN -->
+        <div class="card">
+            <img src="chersen.jpeg" alt="Buah Chersen">
+
+            <div class="isi">
+                <h3>🍒 Buah Chersen</h3>
+                <p>Buah chersen segar dengan rasa yang nikmat.</p>
+
+                <p class="harga">Rp10.000</p>
+
+                <button onclick="tambah('Buah Chersen', 10000)">
+                    🛒 Tambah ke Keranjang
+                </button>
+            </div>
+        </div>
+
+
+        <!-- PEREMPUAN MALAM -->
+        <div class="card">
+            <img src="perempuan-malam.jpeg" alt="Perempuan Malam">
+
+            <div class="isi">
+                <h3>🌙 Perempuan Malam</h3>
+                <p>Menu spesial dengan nama yang unik dan menarik.</p>
+
+                <p class="harga">Rp15.000</p>
+
+                <button onclick="tambah('Perempuan Malam', 15000)">
+                    🛒 Tambah ke Keranjang
+                </button>
+            </div>
+        </div>
+
+    </div>
 
 
     <!-- KERANJANG -->
-    <section id="keranjang" class="keranjang">
+    <div class="box" id="keranjang">
 
-        <h2>🛒 Keranjang Pesanan</h2>
+        <h2>🛒 Keranjang</h2>
 
-        <div id="daftarKeranjang">
-            <p class="kosong">Keranjang masih kosong.</p>
+        <div id="list">
+            <p>Keranjang masih kosong.</p>
         </div>
 
         <div class="total">
             Total: <span id="total">Rp0</span>
         </div>
 
-        <button onclick="hapusKeranjang()">
+        <button onclick="kosongkan()">
             🗑️ Kosongkan Keranjang
         </button>
 
-    </section>
+    </div>
 
 
-    <!-- FORM PEMESAN -->
-    <section id="pesanan" class="keranjang form-pesan">
+    <!-- DATA PEMESAN -->
+    <div class="box" id="pesanan">
 
         <h2>📋 Data Pemesan</h2>
 
-        <input type="text"
-               id="nama"
-               placeholder="Masukkan nama pemesan">
+        <input
+            type="text"
+            id="nama"
+            placeholder="Nama Pemesan">
 
-        <input type="tel"
-               id="nomor"
-               placeholder="Masukkan nomor WhatsApp">
+        <input
+            type="text"
+            id="nomor"
+            placeholder="Nomor HP">
 
-        <textarea id="lokasi"
-                  placeholder="Masukkan lokasi/alamat pemesan"></textarea>
+        <textarea
+            id="lokasi"
+            placeholder="Lokasi / Alamat Pemesan"></textarea>
 
-        <button onclick="pesanSekarang()">
-            📞 Pesan Sekarang
+        <button onclick="pesan()">
+            📱 Pesan Sekarang
         </button>
 
-    </section>
+    </div>
 
 </div>
 
@@ -294,131 +273,137 @@
 
 <script>
 
-    let keranjang = [];
-    let totalHarga = 0;
+let keranjang = [];
+let total = 0;
 
 
-    function tambahKeranjang(nama, harga) {
+// TAMBAH MENU
+function tambah(nama, harga) {
 
-        keranjang.push({
-            nama: nama,
-            harga: harga
-        });
+    keranjang.push({
+        nama: nama,
+        harga: harga
+    });
 
-        totalHarga += harga;
+    total += harga;
 
-        tampilkanKeranjang();
+    tampilkan();
 
-        alert(nama + " berhasil ditambahkan ke keranjang!");
-    }
-
-
-    function tampilkanKeranjang() {
-
-        let daftar = document.getElementById("daftarKeranjang");
-
-        if (keranjang.length === 0) {
-            daftar.innerHTML =
-                '<p class="kosong">Keranjang masih kosong.</p>';
-        } else {
-
-            daftar.innerHTML = "";
-
-            keranjang.forEach(function(item, index) {
-
-                daftar.innerHTML += `
-                    <div class="item">
-                        ${index + 1}. ${item.nama}
-                        - Rp${item.harga.toLocaleString("id-ID")}
-                    </div>
-                `;
-
-            });
-        }
-
-        document.getElementById("total").innerText =
-            "Rp" + totalHarga.toLocaleString("id-ID");
-    }
+    alert(nama + " berhasil masuk ke keranjang!");
+}
 
 
-    function hapusKeranjang() {
+// TAMPILKAN KERANJANG
+function tampilkan() {
 
-        keranjang = [];
-        totalHarga = 0;
+    let list = document.getElementById("list");
 
-        tampilkanKeranjang();
+    list.innerHTML = "";
 
-    }
+    if (keranjang.length === 0) {
 
+        list.innerHTML =
+            "<p>Keranjang masih kosong.</p>";
 
-    function pesanSekarang() {
+    } else {
 
-        let nama = document.getElementById("nama").value;
-        let nomor = document.getElementById("nomor").value;
-        let lokasi = document.getElementById("lokasi").value;
+        keranjang.forEach(function(item, index) {
 
-
-        if (nama === "" || nomor === "" || lokasi === "") {
-
-            alert("Silakan lengkapi nama, nomor WhatsApp, dan lokasi!");
-
-            return;
-        }
-
-
-        if (keranjang.length === 0) {
-
-            alert("Silakan pilih menu terlebih dahulu!");
-
-            return;
-        }
-
-
-        let daftarPesanan = "";
-
-        keranjang.forEach(function(item) {
-
-            daftarPesanan +=
-                "- " + item.nama +
-                " Rp" + item.harga.toLocaleString("id-ID") +
-                "%0A";
+            list.innerHTML += `
+                <div class="item">
+                    ${index + 1}. ${item.nama}
+                    - Rp${item.harga.toLocaleString("id-ID")}
+                </div>
+            `;
 
         });
-
-
-        let pesan =
-            "Halo, saya ingin memesan:%0A%0A" +
-            daftarPesanan +
-            "%0A" +
-            "Nama Pemesan: " + nama +
-            "%0A" +
-            "Nomor: " + nomor +
-            "%0A" +
-            "Lokasi: " + lokasi +
-            "%0A" +
-            "Total: Rp" + totalHarga.toLocaleString("id-ID");
-
-
-        /*
-        GANTI NOMOR DI BAWAH INI
-        dengan nomor WhatsApp toko.
-        Contoh: 6281234567890
-        */
-
-        let nomorToko = "6281234567890";
-
-
-        window.open(
-            "https://wa.me/" + nomorToko +
-            "?text=" + pesan,
-            "_blank"
-        );
-
     }
+
+    document.getElementById("total").innerText =
+        "Rp" + total.toLocaleString("id-ID");
+}
+
+
+// KOSONGKAN
+function kosongkan() {
+
+    keranjang = [];
+    total = 0;
+
+    tampilkan();
+}
+
+
+// PESAN VIA WHATSAPP
+function pesan() {
+
+    let nama = document.getElementById("nama").value;
+    let nomor = document.getElementById("nomor").value;
+    let lokasi = document.getElementById("lokasi").value;
+
+
+    if (nama === "" || nomor === "" || lokasi === "") {
+
+        alert("Lengkapi nama, nomor HP, dan lokasi terlebih dahulu!");
+
+        return;
+    }
+
+
+    if (keranjang.length === 0) {
+
+        alert("Pilih menu terlebih dahulu!");
+
+        return;
+    }
+
+
+    let pesanan = "";
+
+    keranjang.forEach(function(item) {
+
+        pesanan +=
+            "- " + item.nama +
+            " Rp" +
+            item.harga.toLocaleString("id-ID") +
+            "\n";
+
+    });
+
+
+    let pesanWA =
+        "Halo, saya ingin memesan:%0A%0A" +
+
+        pesanan.replace(/\n/g, "%0A") +
+
+        "%0A" +
+        "Nama Pemesan: " + nama +
+
+        "%0A" +
+        "Nomor HP: " + nomor +
+
+        "%0A" +
+        "Lokasi: " + lokasi +
+
+        "%0A" +
+        "Total: Rp" +
+        total.toLocaleString("id-ID");
+
+
+    // NOMOR TOKO
+    let nomorToko = "6285784661440";
+
+
+    window.open(
+        "https://wa.me/" +
+        nomorToko +
+        "?text=" +
+        pesanWA,
+        "_blank"
+    );
+}
 
 </script>
 
 </body>
 </html>
-```
-  
