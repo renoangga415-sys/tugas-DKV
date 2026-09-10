@@ -1,0 +1,424 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Menu Lezat</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #6a1b9a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        nav {
+            background: #4a148c;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card h3 {
+            color: #6a1b9a;
+            margin-bottom: 8px;
+        }
+
+        .harga {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #6a1b9a;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #4a148c;
+        }
+
+        .keranjang {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .keranjang h2 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        #daftarKeranjang {
+            margin-bottom: 15px;
+        }
+
+        .item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-pesan {
+            margin-top: 25px;
+        }
+
+        .form-pesan h2 {
+            margin-bottom: 15px;
+            color: #6a1b9a;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        textarea {
+            height: 90px;
+            resize: none;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        footer {
+            background: #4a148c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .kosong {
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍽️ TOKO MENU LEZAT</h1>
+    <p>Pesan makanan dan minuman favoritmu</p>
+</header>
+
+<nav>
+    <a href="#menu">Menu</a>
+    <a href="#keranjang">🛒 Keranjang</a>
+    <a href="#pesanan">📞 Pesanan</a>
+</nav>
+
+<div class="container">
+
+    <section id="menu">
+        <h2 class="judul">Daftar Menu</h2>
+
+        <div class="menu">
+
+            <!-- TEH TAWAR -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
+                     alt="Teh Tawar">
+
+                <div class="card-content">
+                    <h3>🍵 Teh Tawar</h3>
+                    <p>Teh tawar hangat yang cocok diminum kapan saja.</p>
+                    <p class="harga">Rp5.000</p>
+
+                    <button onclick="tambahKeranjang('Teh Tawar', 5000)">
+                        + Tambah ke Keranjang
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- BUAH CHERSEN -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
+                     alt="Buah">
+
+                <div class="card-content">
+                    <h3>🍒 Buah Chersen</h3>
+                    <p>Buah segar dengan rasa manis dan menyegarkan.</p>
+                    <p class="harga">Rp10.000</p>
+
+                    <button onclick="tambahKeranjang('Buah Chersen', 10000)">
+                        + Tambah ke Keranjang
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PEREMPUAN MALAM -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=80"
+                     alt="Menu Perempuan Malam">
+
+                <div class="card-content">
+                    <h3>🌙 Perempuan Malam</h3>
+                    <p>Menu spesial dengan cita rasa khas dari toko kami.</p>
+                    <p class="harga">Rp15.000</p>
+
+                    <button onclick="tambahKeranjang('Perempuan Malam', 15000)">
+                        + Tambah ke Keranjang
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- KERANJANG -->
+    <section id="keranjang" class="keranjang">
+
+        <h2>🛒 Keranjang Pesanan</h2>
+
+        <div id="daftarKeranjang">
+            <p class="kosong">Keranjang masih kosong.</p>
+        </div>
+
+        <div class="total">
+            Total: <span id="total">Rp0</span>
+        </div>
+
+        <button onclick="hapusKeranjang()">
+            🗑️ Kosongkan Keranjang
+        </button>
+
+    </section>
+
+
+    <!-- FORM PEMESAN -->
+    <section id="pesanan" class="keranjang form-pesan">
+
+        <h2>📋 Data Pemesan</h2>
+
+        <input type="text"
+               id="nama"
+               placeholder="Masukkan nama pemesan">
+
+        <input type="tel"
+               id="nomor"
+               placeholder="Masukkan nomor WhatsApp">
+
+        <textarea id="lokasi"
+                  placeholder="Masukkan lokasi/alamat pemesan"></textarea>
+
+        <button onclick="pesanSekarang()">
+            📞 Pesan Sekarang
+        </button>
+
+    </section>
+
+</div>
+
+
+<footer>
+    <p>© 2026 Toko Menu Lezat</p>
+    <p>Terima kasih sudah memesan ❤️</p>
+</footer>
+
+
+<script>
+
+    let keranjang = [];
+    let totalHarga = 0;
+
+
+    function tambahKeranjang(nama, harga) {
+
+        keranjang.push({
+            nama: nama,
+            harga: harga
+        });
+
+        totalHarga += harga;
+
+        tampilkanKeranjang();
+
+        alert(nama + " berhasil ditambahkan ke keranjang!");
+    }
+
+
+    function tampilkanKeranjang() {
+
+        let daftar = document.getElementById("daftarKeranjang");
+
+        if (keranjang.length === 0) {
+            daftar.innerHTML =
+                '<p class="kosong">Keranjang masih kosong.</p>';
+        } else {
+
+            daftar.innerHTML = "";
+
+            keranjang.forEach(function(item, index) {
+
+                daftar.innerHTML += `
+                    <div class="item">
+                        ${index + 1}. ${item.nama}
+                        - Rp${item.harga.toLocaleString("id-ID")}
+                    </div>
+                `;
+
+            });
+        }
+
+        document.getElementById("total").innerText =
+            "Rp" + totalHarga.toLocaleString("id-ID");
+    }
+
+
+    function hapusKeranjang() {
+
+        keranjang = [];
+        totalHarga = 0;
+
+        tampilkanKeranjang();
+
+    }
+
+
+    function pesanSekarang() {
+
+        let nama = document.getElementById("nama").value;
+        let nomor = document.getElementById("nomor").value;
+        let lokasi = document.getElementById("lokasi").value;
+
+
+        if (nama === "" || nomor === "" || lokasi === "") {
+
+            alert("Silakan lengkapi nama, nomor WhatsApp, dan lokasi!");
+
+            return;
+        }
+
+
+        if (keranjang.length === 0) {
+
+            alert("Silakan pilih menu terlebih dahulu!");
+
+            return;
+        }
+
+
+        let daftarPesanan = "";
+
+        keranjang.forEach(function(item) {
+
+            daftarPesanan +=
+                "- " + item.nama +
+                " Rp" + item.harga.toLocaleString("id-ID") +
+                "%0A";
+
+        });
+
+
+        let pesan =
+            "Halo, saya ingin memesan:%0A%0A" +
+            daftarPesanan +
+            "%0A" +
+            "Nama Pemesan: " + nama +
+            "%0A" +
+            "Nomor: " + nomor +
+            "%0A" +
+            "Lokasi: " + lokasi +
+            "%0A" +
+            "Total: Rp" + totalHarga.toLocaleString("id-ID");
+
+
+        /*
+        GANTI NOMOR DI BAWAH INI
+        dengan nomor WhatsApp toko.
+        Contoh: 6281234567890
+        */
+
+        let nomorToko = "6281234567890";
+
+
+        window.open(
+            "https://wa.me/" + nomorToko +
+            "?text=" + pesan,
+            "_blank"
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
+```
+  
